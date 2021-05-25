@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="utf-8">
+	<meta name="Keywords" content="Microcontroller,8051,Assembly,Programming,Code,Proteus">
+	<title>8051 Instruction Set</title>
+</head>
+
+
+<body  bgcolor=white>
+
+	<div id="header_common"><img src="assets/images/github_banner.png" alt="common_header"></div>
+	<div id="topic_container"><h2>Theory - 03: 8051 Microcontroller Instruction Set</h2></div>
+
+
+  <table align = center width=1000 height=1000  bgcolor= white>
+	  <tr>
+	    <td width=200 bgcolor=white valign=top>
+
+		    <div id="exp_lst_cont">
+          <h3>Theories :</h3>
+          <ul class="ul_exp">
+            <li><a href="https://gmostofabd.github.io/8051-LED/">Introduction to Microcontroller</a></li>
+            <li><a href="https://gmostofabd.github.io/8051-Push-Button/">8051 Architecture</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-7Segment/">8051 Instruction Set</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LED-Matrix/">Assembly Programming</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LCD/">Development Tools & Environment</a></li>
+          </ul>
+
+          <h3>Experiments :</h3>
+            <ul class="ul_exp">
+              <li><a href="https://gmostofabd.github.io/8051-LED/">LED Blink</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Push-Button/">Push Button Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-7Segment/">Seven Segment Display Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LED-Matrix/">LED Dot Matrix Display Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-LCD/">LCD Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Analog/">Potentiometer (or Analog) Reading</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-Keypad/">Key Pad Matrix Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/dc-motor-8051/">DC Motor Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/stepper-motor-8051/">Stepper Motor Interfacing</a></li>
+              <li><a href="https://gmostofabd.github.io/8051-RTC/">RTC Interfacing</a></li>
+            </ul>
+        </div>
+
+        <div id="proj_lst_cont">
+            <ol><h3>8051 Projects:</h3>
+              <li>Access Control System</li>
+              <li>6 Digit Clock</li>
+              <li>IR Remote Load ON OFF</li>
+              <li>Line Follower</li>
+              <li>Incubator Controller</li>
+            </ol>
+        </div>         
+
+    </td>
+
+
+	  <td width=600 align=center valign=top bgcolor= white>
+		
+		<h3>Introduction:</h3>
+      <blockquote>
+		  <p>
+        Just as our sentences are made of words, a Microcontroller’s (for that matter, any computer) 
+        program is made of <strong>Instructions</strong>. Instructions written in a program tell 
+        the Microcontroller which operation to carry out. An Instruction Set is unique to a 
+        family of computers.
+
+         <br><br>Writing a Program for any Microcontroller consists of giving commands to the 
+         Microcontroller in a particular order in which they must be executed in order to perform 
+         a specific task. The commands to the Microcontroller are known as a Microcontroller’s 
+         Instruction Set. The instruction set consists of instructions, native data types, 
+         addressing modes, interrupt registers, exceptional handling and memory architecture. 
+         The 8051 microcontroller can follow CISC instructions with Harvard architecture. 
+         This tutorial introduces the 8051 Microcontroller Instruction Set also called as 
+         the MCS-51 Instruction Set.
+	    </p>
+      </blockquote>
+
+      <h3>Instruction Set of 8051 Microcontroller</h3>
+
+      <blockquote>
+        <p>
+          All members of the 8051 family execute the same instructions set. The 8051 instructions set 
+          is optimized for 8-bit content application. The Intel 8051 has excellent and most powerful 
+          instructions set offers possibilities in control area, serial Input/Output, arithmetic, 
+          byte and bit manipulation.
+        </p>
+      </blockquote>
+      <div class="box_70"><img src="assets/images/allcomands.png"/><span class="capt_cont">Fig: 8051 All Commands</span></div>
+
+      <p>Before seeing the types of instructions, let us see the structure of the 8051 Microcontroller Instruction.</p>
+
+      <div class="box_70"><img src="assets/images/instr_structure2.png"/><span class="capt_cont">Fig: A simple 3 byte Instruction structure</span></div>
+      <p>
+        An 8051 Instruction consists of an Opcode (short of Operation – Code) followed by 
+        Operand(s) of size Zero Byte, One Byte or Two Bytes.
+
+        <br><br>The Op-Code part of the instruction contains the Mnemonic, which specifies 
+        the type of operation to be performed. All Mnemonics or the Opcode part of the 
+        instruction are of One Byte size.
+
+        <br><br>Coming to the Operand part of the instruction, it defines the data being 
+        processed by the instructions. The operand can be any of the following:
+      </p>
+
+      <ul class="ul_gen">
+        <li>No Operand</li>
+        <li>Data value</li>
+        <li>I/O Port</li>
+        <li>Memory Location</li>
+        <li>CPU register</li>
+      </ul>
+
+      <p>
+        8051 series microcontroller has 111 instructions they are:
+      </p>
+
+      <ul class="ul_gen">
+        <li>49 single byte instructions (Only Opcode)</li>
+        <li>45 two bytes instructions (Opcode + One Byte Operand)</li>
+        <li>17 three bytes instructions (Opcode + Two Byte Operands)</li>
+      </ul>
+
+
+      <p>
+        Based on the operation they perform, all the instructions in 
+        the 8051 Microcontroller Instruction Set are divided into five groups. They are:
+      </p>
+
+      <ul class="ul_gen">
+        <li>Data Transfer Instructions</li>
+        <li>Arithmetic Instructions</li>
+        <li>Logical Instructions</li>
+        <li>Boolean or Bit Manipulation Instructions</li>
+        <li>Program Branching Instructions</li>
+      </ul>
+
+      <p>We will now see about these instructions briefly. </p>
+
+
+      <h3>Data Transfer Instructions</h3>
+      <p>
+        The Data Transfer Instructions are associated with transfer of data between registers 
+        or external program memory or external data memory. The Mnemonics associated with 
+        Data Transfer are given below.
+      </p>
+
+      <ul class="ul_gen">
+        <li>MOV (Move Data)</li>
+        <li>MOVC (Move Code)</li>
+        <li>MOVX (Move External Data)</li>
+        <li>PUSH (Move Data to Stack)</li>
+        <li>POP  (Copy Data from Stack)</li>
+        <li>XCH  (Exchange Data between two Registers)</li>
+        <li>XCHD (Exchange Lower Order Data between two Registers)</li>
+      </ul>
+
+      <p>
+        The following table lists out all the possible data transfer instructions along 
+        with other details like addressing mode, size occupied and number machine cycles it takes.
+      </p>
+      <div class="box_70"><img src="assets/images/dt_tx_1.png"/><span class="capt_cont">Fig: 8051 Data Transfer operators</span></div>
+
+      <h3>Arithmetic Instructions</h3>            
+        <p>
+          Using Arithmetic Instructions, you can perform addition, subtraction, multiplication and division. 
+          The arithmetic instructions also include increment by one, decrements by one and a special instruction 
+          called Decimal Adjust Accumulator. The Mnemonics associated with the Arithmetic Instructions are:
+        </p>
+
+        <ul class="ul_gen">
+          <li>ADD (Addition without Carry)</li>
+          <li>ADDC  (Addition with Carry)</li>
+          <li>SUBB  (Subtract with Carry)</li>
+          <li>INC  (Increment by 1)</li>
+          <li>DEC   (Decrement by 1)</li>
+          <li>MUL   (Multiply)</li>
+          <li>DIV  (Divide)</li>
+          <li>DA A  (Decimal Adjust the Accumulator (A Register))</li>
+        </ul>
+
+        <p>
+          All the possible Mnemonics associated with Arithmetic Instructions are mentioned in the following table.
+        </p>
+ 
+        <div class="box_70"><img src="assets/images/ari.png"/><span class="capt_cont">Fig: arithmatic_operator</span></div>
+        
+        <p>
+          <strong>Note :</strong> The arithmetic instructions have no knowledge about the data format 
+          i.e., signed, unsigned, ASCII, BCD, etc. Also, the operations performed by the 
+          arithmetic instructions affect flags like carry, overflow, zero, etc. in the PSW Register.
+        </p>
+  
+
+
+
+
+      </td>
+
+	  <td valign=top bgcolor= white>
+		
+      <div class="vdo_lst_cont">
+        <h3>Lesson Video</h3>
+        <iframe width="174" height="120" src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      </div>
+
+      <div class="box_this_lesson">
+        <h3>Lesson Includes:</h3>
+        <ul class="ul_right">
+          <li>Introduction</li>
+          <li>Hardware Discussion</li>
+          <li>Circuit Diagram</li>
+          <li>Assembly Code</li>
+          <li>Post Run Discussion</li>
+          <li>Exercises</li>
+          <li>Tips and Tricks</li>
+        </ul>
+      </div>
+
+
+
+      <div class="box_this_lesson">
+          <h3>Important Downloads</h3>
+          <ul class="ul_right">
+            <li>Proteus 8.7</li>
+            <li>MIDE-51 IDE</li>
+            <li>AVRDUDES</li>
+          </ul>
+      </div>
+
+
+      <div class="box_this_lesson">
+          <span><b>Lesson Contents</b></span>
+          <ul class="ul_right">
+              <li>Circuit Diagram (Proteus)</li>
+              <li>Lesson PDF</li>
+              <li>7seg_1d_8051.asm</li>
+              <li>7seg_2d_8051.asm</li>
+              <li>7segment Datasheet PDF</li>
+              <li>Exercise Solutions</li>
+          </ul>
+      </div>
+
+    </td>
+
+
+	</tr>
+         
+  </table>
+
+  <table width=1000 height=50 align= center border="1">
+	  <tr>
+			<td>Prev topic: Push Button Interfacing with 8051</td>
+			<td>Next topic: LED Matrix interfacing with 8051</td>
+		</tr>
+  </table>
+
+	<div id="footer_common">
+
+    <div class="prj_footer_cell">
+      <strong>Top Tutorial sites </strong>
+        <ul class="ul_footer">
+          <li id="active"><a href="http://www.melab-bd.com/home.html"><strong>Circuit Today</strong></a></li>
+          <li><a href="http://www.melab-bd.com/about.html"><strong>Radio Electronics</strong></a></li>
+          <li><a href="http://www.melab-bd.com/product.html"><strong>MikroE</strong></a></li>
+         </ul>
+    </div>
+
+  </div>
+    
+
+</body>
+
+
+</html>
